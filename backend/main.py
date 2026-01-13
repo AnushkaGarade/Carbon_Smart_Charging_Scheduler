@@ -10,9 +10,9 @@ app = FastAPI(title="Carbon-Smart-Charging-API")
 # ==============================
 # Load models
 # ==============================
-carbon_model = joblib.load("backend/models/carbon_intensity_model.pkl")
-cluster_model = joblib.load("backend/models/customer_behavior_kmeans_model.joblib")
-cluster_scaler = joblib.load("backend/models/customer_behavior_scaler.joblib")
+carbon_model = joblib.load("models/carbon_intensity_model.pkl")
+cluster_model = joblib.load("models/customer_behavior_kmeans_model.joblib")
+cluster_scaler = joblib.load("models/customer_behavior_scaler.joblib")
 
 
 # ==============================
