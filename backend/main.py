@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
+from pathlib import Path
 import pandas as pd
 import numpy as np
 from datetime import datetime
@@ -19,8 +20,11 @@ cluster_scaler = joblib.load("models/customer_behavior_scaler.joblib")
 # Load historical carbon data
 # ==============================
 # CSV must contain: timestamp, ci_direct
+
+BASE_DIR = Path(__file__).resolve().parent
+
 carbon_history = pd.read_csv(
-    "backend/data/EV_Grid_Dataset.csv",
+    BASE_DIR / "data/EV_Grid_Dataset.csv",
     parse_dates=["Datetime (UTC)"]
 ).sort_values("Datetime (UTC)")
 
