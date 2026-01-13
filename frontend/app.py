@@ -111,10 +111,12 @@ with col1:
 # ==============================
 # ANALYSIS
 # ==============================
+BACKEND_URL = "https://carbon-smart-charging-scheduler-jnc5.onrender.com"
+
 if run:
 
     cluster_res = requests.post(
-        "http://127.0.0.1:8000/cluster_user",
+        f"{BACKEND_URL}/cluster_user",
         json={
             "arrival_hour": arrival_hour,
             "charging_duration": charging_duration,
@@ -123,7 +125,7 @@ if run:
     )
 
     carbon_res = requests.post(
-        "http://127.0.0.1:8000/predict_carbon",
+        f"{BACKEND_URL}/predict_carbon",
         json={"timestamp": timestamp.isoformat()}
     )
 
